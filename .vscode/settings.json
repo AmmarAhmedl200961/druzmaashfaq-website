@@ -1,0 +1,10 @@
+{
+    "chat.mcp.serverSampling": {
+        "druzmaashfaq-website/.vscode/mcp.json: microsoft/playwright-mcp": {
+            "allowedModels": [
+                "copilot/gpt-5-mini",
+                "copilot/auto"
+            ]
+        }
+    }
+}
