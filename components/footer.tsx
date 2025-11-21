@@ -82,10 +82,9 @@ export function Footer() {
               <div className="flex items-start gap-2 text-background/80 mb-6">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" aria-hidden="true" />
                 <address className="not-italic text-sm leading-relaxed">
-                  1 Green Acres Main Rd<br />
+                  43 Green Acres Main Rd<br />
                   Block B T & T Aabpara Housing Society<br />
-                  Lahore, Pakistan<br />
-                  <span className="text-xs">Plus Code: C66R+V5</span>
+                  Lahore, Pakistan
                 </address>
               </div>
               

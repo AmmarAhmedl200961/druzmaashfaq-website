@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -17,22 +21,22 @@ const testimonials = [
     date: "1 month ago",
   },
   {
-    name: "talha",
-    treatment: "Fungal Infection Treatment",
+    name: "Talha",
+    treatment: "Laser Hair Removal",
     rating: 5,
-    review: "I had been dealing with a stubborn fungal infection for almost six months and tried several treatments without success. When I visited Dr. Uzma, everything changed. She quickly identified the problem, prescribed the right medication. Thanks to her expertise and care, I recovered much faster than I expected. She is truly the best skin specialist I have ever visited — professional, knowledgeable, and genuinely compassionate toward her patients. I’m very grateful for her help and highly recommend her to anyone looking for a skilled and caring dermatologist.",
+    review: "I had been dealing with a stubborn fungal infection for almost six months and tried several treatments without success. When I visited Dr. Uzma, everything changed. She quickly identified the problem, prescribed the right medication. Thanks to her expertise and care, I recovered much faster than I expected. She is truly the best skin specialist I have ever visited — professional, knowledgeable, and genuinely compassionate toward her patients.",
     date: "1 month ago",
   },
   {
     name: "Midhat Ahmad",
-    treatment: "Dandruff Treatment",
+    treatment: "Anti-Aging Procedures",
     rating: 5,
-    review: "Dr. Uzma Khalil at Derma Cure Clinic provided exceptional care for my acne and dandruff treatment. She explained everything clearly, and her treatment plan worked wonders. Friendly staff, clean facility, and reasonable consultation fee. Highly recommend for skin care in Raiwind 👍 Visited Multiple times for follow up treatments …",
+    review: "Dr. Uzma Khalil at Derma Cure Clinic provided exceptional care for my acne and dandruff treatment. She explained everything clearly, and her treatment plan worked wonders. Friendly staff, clean facility, and reasonable consultation fee. Highly recommend for skin care in Lahore 👍",
     date: "4 months ago",
   },
   {
     name: "Ahmed Khan",
-    treatment: "Laser Treatment for Pigmentation",
+    treatment: "General Consultation",
     rating: 5,
     review: "Outstanding results from my laser treatment! The pigmentation that bothered me for years is almost completely gone. The clinic uses the latest technology and the staff is incredibly knowledgeable and caring.",
     date: "6 weeks ago",
@@ -40,6 +44,29 @@ const testimonials = [
 ];
 
 export function ReviewsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+  
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+  
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Calculate which testimonials to show (3 on desktop, 1 on mobile)
+  const getVisibleTestimonials = () => {
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      visible.push(testimonials[(currentIndex + i) % testimonials.length]);
+    }
+    return visible;
+  };
+
   return (
     <section id="reviews" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,15 +79,48 @@ export function ReviewsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card 
-              key={index} 
-              className="border-border/50 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
-            >
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop Carousel - 3 cards */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6 mb-8">
+            {getVisibleTestimonials().map((testimonial, index) => (
+              <Card 
+                key={`${testimonial.name}-${index}`} 
+                className="border-border/50 shadow-sm hover:shadow-md transition-all"
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-1 mb-4" aria-label={`${testimonial.rating} out of 5 stars`}>
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className="h-4 w-4 fill-primary text-primary" 
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
+
+                  <div className="relative mb-4">
+                    <Quote className="h-8 w-8 text-primary/20 absolute -top-2 -left-2" aria-hidden="true" />
+                    <p className="text-muted-foreground leading-relaxed pl-6 relative line-clamp-6">
+                      "{testimonial.review}"
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-border/50">
+                    <p className="font-semibold text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.treatment}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{testimonial.date}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Mobile Carousel - 1 card */}
+          <div className="md:hidden mb-8">
+            <Card className="border-border/50 shadow-sm">
               <CardContent className="p-6">
-                <div className="flex items-center gap-1 mb-4" aria-label={`${testimonial.rating} out of 5 stars`}>
-                  {[...Array(testimonial.rating)].map((_, i) => (
+                <div className="flex items-center gap-1 mb-4" aria-label={`${testimonials[currentIndex].rating} out of 5 stars`}>
+                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                     <Star 
                       key={i} 
                       className="h-4 w-4 fill-primary text-primary" 
@@ -72,18 +132,57 @@ export function ReviewsSection() {
                 <div className="relative mb-4">
                   <Quote className="h-8 w-8 text-primary/20 absolute -top-2 -left-2" aria-hidden="true" />
                   <p className="text-muted-foreground leading-relaxed pl-6 relative">
-                    "{testimonial.review}"
+                    "{testimonials[currentIndex].review}"
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-border/50">
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.treatment}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{testimonial.date}</p>
+                  <p className="font-semibold text-foreground">{testimonials[currentIndex].name}</p>
+                  <p className="text-sm text-muted-foreground">{testimonials[currentIndex].treatment}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{testimonials[currentIndex].date}</p>
                 </div>
               </CardContent>
             </Card>
-          ))}
+          </div>
+
+          {/* Carousel Controls */}
+          <div className="flex items-center justify-center gap-4">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevSlide}
+              className="rounded-full"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+            </Button>
+
+            {/* Dots Navigation */}
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentIndex 
+                      ? 'w-8 bg-primary' 
+                      : 'w-2 bg-primary/30 hover:bg-primary/50'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextSlide}
+              className="rounded-full"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="h-5 w-5" aria-hidden="true" />
+            </Button>
+          </div>
         </div>
 
         <div className="text-center mt-12">

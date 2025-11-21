@@ -9,8 +9,8 @@ const credentials = [
   },
   {
     icon: Award,
-    title: "15+ Years Experience",
-    description: "Over 15 years of clinical excellence serving thousands of satisfied patients",
+    title: "20+ Years Experience",
+    description: "Over 20 years of clinical excellence serving thousands of satisfied patients",
   },
   {
     icon: BookOpen,
@@ -48,18 +48,20 @@ export function PortfolioSection() {
             {/* Right side - Content */}
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Excellence in Dermatological Care
+                Meet Dr. Uzma Khalil
               </h2>
               <div className="prose prose-lg max-w-none mb-8">
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  With a passion for skin health and a commitment to excellence, our dermatology practice 
-                  combines cutting-edge medical treatments with advanced aesthetic procedures to help you 
-                  achieve your healthiest, most radiant skin.
+                  With over 20 years of dedicated experience in dermatology, Dr. Uzma Khalil brings 
+                  unparalleled expertise in both medical and aesthetic dermatology. Board-certified and 
+                  committed to excellence, she combines evidence-based treatments with personalized care 
+                  to help you achieve your healthiest, most radiant skin.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  We believe in a holistic approach to dermatology, where each patient receives personalized 
-                  care based on their unique skin type, concerns, and aesthetic goals. Our excellent dermatologist 
-                  portfolio showcases a proven track record of transformative results and exceptional patient satisfaction.
+                  At Derma Cure, we believe in a holistic approach where each patient receives customized 
+                  treatment plans based on their unique skin type, concerns, and aesthetic goals. Our proven 
+                  track record of transformative results and exceptional patient satisfaction speaks to our 
+                  commitment to your skin health journey.
                 </p>
               </div>
 

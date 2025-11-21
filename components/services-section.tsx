@@ -5,20 +5,21 @@ const services = [
   {
     category: "Medical Dermatology",
     icon: Microscope,
+    description: "Advanced treatment protocols for all types of skin conditions",
     services: [
       {
         name: "Acne Treatment",
-        description: "Advanced treatment protocols for all types of acne, from mild to severe cystic acne.",
+        description: "Advanced treatment protocols for all types of acne, from mild to severe cystic acne, using evidence-based medical approaches.",
         icon: Shield,
       },
       {
         name: "Fungal Infection Treatment",
-        description: "All types of fungal infection treatments.",
+        description: "Comprehensive diagnostic and treatment solutions for all types of fungal infections affecting skin, nails, and scalp.",
         icon: Heart,
       },
       {
         name: "Eczema & Psoriasis Care",
-        description: "Personalized management plans for chronic skin conditions with proven results.",
+        description: "Personalized management plans for chronic inflammatory skin conditions with proven long-term results.",
         icon: Zap,
       },
     ],
@@ -26,20 +27,21 @@ const services = [
   {
     category: "Aesthetic Dermatology",
     icon: Sparkles,
+    description: "State-of-the-art cosmetic procedures for skin rejuvenation",
     services: [
       {
         name: "Anti-Aging Treatments",
-        description: "Botox, dermal fillers, and advanced skin rejuvenation for natural-looking results.",
+        description: "Utilizing state-of-the-art laser technology and injectable treatments including Botox and dermal fillers for natural-looking rejuvenation.",
         icon: Sparkles,
       },
       {
         name: "Laser Treatments",
-        description: "State-of-the-art laser therapy for pigmentation, scars, and skin resurfacing.",
+        description: "Advanced laser therapy for pigmentation correction, scar reduction, hair removal, and comprehensive skin resurfacing.",
         icon: Zap,
       },
       {
         name: "Medical-Grade Skincare",
-        description: "Customized treatment plans with professional-grade products and procedures.",
+        description: "Customized treatment plans featuring professional-grade products and clinical procedures tailored to your unique skin needs.",
         icon: Syringe,
       },
     ],
@@ -69,7 +71,10 @@ export function ServicesSection() {
                     <div className="p-2 rounded-lg bg-primary/10">
                       <CategoryIcon className="h-6 w-6 text-primary" aria-hidden="true" />
                     </div>
-                    <CardTitle className="text-2xl">{category.category}</CardTitle>
+                    <div>
+                      <CardTitle className="text-2xl">{category.category}</CardTitle>
+                      <CardDescription className="text-sm mt-1">{category.description}</CardDescription>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">

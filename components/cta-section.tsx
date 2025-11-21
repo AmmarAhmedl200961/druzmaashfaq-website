@@ -49,9 +49,9 @@ export function CtaSection() {
                       <h4 className="font-semibold text-foreground mb-1">Location</h4>
                       <address className="text-muted-foreground not-italic leading-relaxed">
                         Derma Cure<br />
-                        1 Green Acres Main Rd, Block B T & T Aabpara Housing Society,<br />
+                        43 Green Acres Main Rd, Block B T & T Aabpara Housing Society,<br />
                         Lahore, Pakistan<br />
-                        <span className="text-xs">Plus Code: C66R+V5 Lahore, Pakistan</span>
+                        <span className="text-xs">C66R+V5</span>
                       </address>
                     </div>
                   </div>
@@ -78,13 +78,7 @@ export function CtaSection() {
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">Hours</h4>
                       <div className="text-muted-foreground space-y-1 text-sm">
-                        <p>Sunday: 5:00 PM – 10:00 PM</p>
-                        <p>Monday: 7:00 PM – 10:00 PM</p>
-                        <p>Tuesday: 7:00 PM – 10:00 PM</p>
-                        <p>Wednesday: 7:00 PM – 10:00 PM</p>
-                        <p>Thursday: 7:00 PM – 10:00 PM</p>
-                        <p>Friday: 7:00 PM – 10:00 PM</p>
-                        <p>Saturday: 7:00 PM – 10:00 PM</p>
+                        <p>Sunday: 5:00 – 10:00 and Monday - Saturday: 7:00 – 10:00</p>
                       </div>
                     </div>
                   </div>
@@ -97,7 +91,7 @@ export function CtaSection() {
               <CardContent className="p-0">
                 <div className="aspect-[4/3] relative">
                   <iframe
-                    src="https://maps.google.com/maps?q=31.412135,74.240428&z=17&output=embed"
+                    src="https://maps.google.com/maps?q=31.4121086,74.1580267&z=17&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
