@@ -88,7 +88,7 @@ export function ReviewsSection() {
                 className="border-border/50 shadow-sm hover:shadow-md transition-all"
               >
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-1 mb-4" aria-label={`${testimonial.rating} out of 5 stars`}>
+                  <div className="flex items-center gap-1 mb-4" role="img" aria-label={`${testimonial.rating} out of 5 stars`}>
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star 
                         key={i} 
@@ -119,7 +119,7 @@ export function ReviewsSection() {
           <div className="md:hidden mb-8">
             <Card className="border-border/50 shadow-sm">
               <CardContent className="p-6">
-                <div className="flex items-center gap-1 mb-4" aria-label={`${testimonials[currentIndex].rating} out of 5 stars`}>
+                <div className="flex items-center gap-1 mb-4" role="img" aria-label={`${testimonials[currentIndex].rating} out of 5 stars`}>
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                     <Star 
                       key={i} 

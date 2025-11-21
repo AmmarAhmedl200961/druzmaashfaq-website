@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Derma Cure",
     images: [
       {
-        url: "/hero-banner.jpg",
+        url: "/hero-banner.webp",
         width: 1200,
         height: 630,
         alt: "Derma Cure - Professional Dermatology Clinic in Lahore",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Derma Cure | Best Dermatologist in Lahore - Dr. Uzma Khalil",
     description: "Board Certified Dermatologist specializing in Acne, Eczema, and Laser treatments. Book your consultation today.",
-    images: ["/hero-banner.jpg"],
+    images: ["/hero-banner.webp"],
   },
   robots: {
     index: true,
@@ -45,7 +45,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Dermatology",
     "name": "Derma Cure",
-    "image": "https://dermacure.vercel.app/hero-banner.jpg",
+    "image": "https://dermacure.vercel.app/hero-banner.webp",
     "@id": "https://dermacure.vercel.app",
     "url": "https://dermacure.vercel.app",
     "telephone": "+923304620676",

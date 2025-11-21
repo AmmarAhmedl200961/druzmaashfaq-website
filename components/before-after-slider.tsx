@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { MoveHorizontal } from "lucide-react";
 
 export function BeforeAfterSlider() {
@@ -69,10 +70,12 @@ export function BeforeAfterSlider() {
           >
             {/* After Image (Full Background) */}
             <div className="absolute inset-0">
-              <img
-                src="/before-after-acne.jpg"
+              <Image
+                src="/before-after-acne.webp"
                 alt="After dermatology treatment - clear, healthy skin"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 draggable={false}
               />
               <div className="absolute bottom-6 right-6 bg-primary text-primary-foreground px-4 py-2 rounded-lg font-semibold text-sm shadow-lg">
@@ -85,10 +88,12 @@ export function BeforeAfterSlider() {
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <img
-                src="/before-after-acne.jpg"
+              <Image
+                src="/before-after-acne.webp"
                 alt="Before dermatology treatment - acne-affected skin"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 draggable={false}
               />
               <div className="absolute bottom-6 left-6 bg-destructive text-destructive-foreground px-4 py-2 rounded-lg font-semibold text-sm shadow-lg">

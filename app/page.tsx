@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ServicesSection } from "@/components/services-section";
 import { PortfolioSection } from "@/components/portfolio-section";
@@ -16,10 +17,13 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
-            src="/hero-banner.jpg"
+          <Image
+            src="/hero-banner.webp"
             alt="Professional dermatology clinic consultation"
-            className="w-full h-full object-cover object-center"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
           />
           {/* Overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />

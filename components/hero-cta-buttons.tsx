@@ -5,8 +5,17 @@ import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export function HeroCTAButtons() {
-  const handleWhatsAppClick = () => {
-    trackEvent('click_whatsapp', 'conversion', 'header_button');
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    
+    // Track conversion event
+    trackEvent('conversion', 'Lead', 'WhatsApp Click');
+    
+    // Delay redirect to ensure event fires
+    setTimeout(() => {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }, 300);
   };
 
   return (

@@ -6,8 +6,17 @@ import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export function CtaSection() {
-  const handleBookingClick = () => {
-    trackEvent('click_booking', 'conversion', 'hero_cta');
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    
+    // Track conversion event
+    trackEvent('conversion', 'Lead', 'Booking Click');
+    
+    // Delay redirect to ensure event fires
+    setTimeout(() => {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }, 300);
   };
 
   return (
