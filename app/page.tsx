@@ -11,7 +11,7 @@ export default function Home() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary/30 via-background to-primary/5">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" aria-hidden="true" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
